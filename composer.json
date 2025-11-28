@@ -1,0 +1,54 @@
+{
+    "name": "davidlienhard/convert",
+    "license": ["MIT"],
+    "description": "🐘 php library to convert data-types in php",
+    "keywords": [ "convert", "php", "library" ],
+    "type": "libary",
+    "homepage": "https://github.com/davidlienhard/convert/",
+    "authors": [
+        {
+            "name": "David Lienhard",
+            "email": "github@lienhard.win",
+            "homepage": "http://www.lienhard.win/",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/davidlienhard/convert/issues/",
+        "email": "github@lienhard.win"
+    },
+    "require": {
+        "php": "^8.4"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3",
+        "phpstan/phpstan": "^2",
+        "davidlienhard/coding-standard": "^1"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "scripts": {
+        "changed-files": "git diff --name-only origin/master",
+        "phpcs": "./vendor/bin/phpcs",
+        "phpcs-diff": "@composer changed-files | xargs ls -d 2>/dev/null | xargs ./vendor/bin/phpcs",
+        "phpstan": "./vendor/bin/phpstan analyse",
+        "coverage": "docker run --rm -v${PWD}:/srv/app ghcr.io/davidlienhard/tourbase-coverage",
+        "test": [
+            "@phpcs",
+            "@phpstan"
+        ]
+    },
+    "convert": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
